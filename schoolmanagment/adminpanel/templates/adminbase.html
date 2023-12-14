@@ -169,9 +169,11 @@
     <div class="left_area">
       <h3>Online Exam</h3>
     </div>
-    <div class="right_area">
-      <a href="/logout" class="logout_btn" style="border-radius:0px;"> Logout</a>
-    </div>
+    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit" class="logout_btn" style="border: none; background: none; cursor: pointer;">Logout</button>
+  </form>
+  
   </header>
   <!--header area end-->
   <!--sidebar start-->

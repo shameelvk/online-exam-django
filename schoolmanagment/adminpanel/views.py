@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def admin_login(request):
     return render(request,'admin_login.html')
+
 
 def admin_dashboard(request):
     dict={
@@ -132,9 +134,32 @@ def delete_question_view(request):
 def admin_question(request):
     return render(request,'admin_question.html')
 
+from django.shortcuts import render, redirect
+from .models import Question
+
 def admin_add_question_view(request):
-    if request.method=='POST':
-        
-        return redirect('admin-view-question')
-    
-    return render(request,'admin_add_question.html',{'questionForm':""})
+    if request.method == 'POST':
+        # Retrieve data from the form
+        course_id = request.POST.get('courseID')
+        question_text = request.POST.get('question')
+        marks = request.POST.get('marks')
+        option1 = request.POST.get('option1')
+        option2 = request.POST.get('option2')
+        option3 = request.POST.get('option3')
+        option4 = request.POST.get('option4')
+        answer = request.POST.get('answer')
+
+        Question.objects.create(
+            course=course_id,
+            question=question_text,
+            marks=marks,
+            option1=option1,
+            option2=option2,
+            option3=option3,
+            option4=option4,
+            answer=answer
+        )
+
+        return redirect('admin-view-question')  
+
+    return render(request, 'admin_add_question.html')
