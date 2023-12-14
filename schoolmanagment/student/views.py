@@ -52,3 +52,6 @@ def check_marks(request):
 
 def student_signup(request):
     return render(request,'student_signup.html')
+
+def student_login(request):
+    return render(request,'student_login.html')

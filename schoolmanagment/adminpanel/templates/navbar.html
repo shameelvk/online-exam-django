@@ -43,9 +43,8 @@
         </div>
 
         <div class="navbar-nav">
-          <a style="padding-left: 30px;" href="/" class="nav-item nav-link"> Home</a>
-          <a href="/student/studentclick" class="nav-item nav-link">Student</a>
-          <a href="/adminclick" class="nav-item nav-link">Admin</a>
+          <a href="{% url 'student-login' %}" class="nav-item nav-link">Student</a>
+          <a href="{% url 'admin-login' %}" class="nav-item nav-link">Admin</a>
         </div>
 
 
