@@ -1,0 +1,60 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  a:link {
+        text-decoration: none;
+      }
+    
+  </style>
+</head>
+<h2 style="text-align:center;">Add Question</h2>
+<form method="POST" autocomplete="off" style="margin: 100px; margin-top: 0px;">
+  {% csrf_token %}
+  <div class="form-group">
+      <label for="course">Course</label>
+      <input type="text" name="courseID" id="courseID" required="true" class="form-control">
+      <br>
+
+      <label for="question">Question</label>
+      <textarea name="question" id="question" required="true" class="form-control" placeholder="Example: Which one of the following is not a phase of Prototyping Model?"></textarea>
+      <br>
+
+      <label for="marks">Marks</label>
+      <input type="text" name="marks" id="marks" required="true" class="form-control" placeholder="Example: 5">
+      <br>
+
+      <label for="option1">Option 1</label>
+      <input type="text" name="option1" id="option1" required="true" class="form-control" placeholder="Example: Quick Design">
+      <br>
+
+      <label for="option2">Option 2</label>
+      <input type="text" name="option2" id="option2" required="true" class="form-control" placeholder="Example: Coding">
+      <br>
+
+      <label for="option3">Option 3</label>
+      <input type="text" name="option3" id="option3" required="true" class="form-control" placeholder="Example: Prototype Refinement">
+      <br>
+
+      <label for="option4">Option 4</label>
+      <input type="text" name="option4" id="option4" required="true" class="form-control" placeholder="Example: Engineer Product">
+      <br>
+
+      <label for="answer">Correct Answer</label>
+      <input type="text" name="answer" id="answer" required="true" class="form-control">
+  </div>
+
+  <input type="submit" class="btn btn-success" value=
+  'Submit Question' style="border-radius: 0px;">
+</form>
+
+<br><br><br>
+{% endblock content %}

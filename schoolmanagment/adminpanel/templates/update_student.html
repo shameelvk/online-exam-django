@@ -1,0 +1,72 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+  </style>
+
+
+</head>
+
+<br><br>
+<h2 style="text-align:center;">Update Student</h2>
+<div>
+  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left: 200px; margin-right: 200px;">
+    {% csrf_token %}
+
+    <label for="first_name">First Name</label>
+    <input type="text" name="{{ userForm.first_name.name }}" class="form-control" placeholder="First Name" value="{{ userForm.first_name.value }}">
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="{{ userForm.last_name.name }}" class="form-control" placeholder="Last Name" value="{{ userForm.last_name.value }}">
+
+    <label for="mobile">Contact</label>
+    <input type="text" name="{{ studentForm.mobile.name }}" class="form-control" placeholder="Mobile" value="{{ studentForm.mobile.value }}">
+
+    <label for="address">Address</label>
+    <input type="text" name="{{ studentForm.address.name }}" class="form-control" placeholder="Address" value="{{ studentForm.address.value }}">
+
+    <label for="username">Username</label>
+    <input type="text" name="{{ userForm.username.name }}" class="form-control" placeholder="Username" value="{{ userForm.username.value }}">
+
+    
+
+    {% comment %} <label for="profile_pic">Profile Picture</label>
+    <input type="file" name="{{ studentForm.profile_pic.name }}" class="form-control"> {% endcomment %}
+
+    <br>
+
+
+    <input type="submit" value="Update" style="border-radius:0px;">
+  </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}
